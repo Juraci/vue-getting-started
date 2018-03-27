@@ -33,6 +33,16 @@
       <input type="text" v-model="message">
     </div>
 
+    <div id="app-7">
+      <ol>
+        <todo-item
+          v-for="todo in todos"
+          v-bind:todo="todo"
+          v-bind:key="todo.id"
+        ></todo-item>
+      </ol>
+    </div>
+
       <script>
       const app = new Vue({
         el: '#app',
@@ -80,6 +90,22 @@
         el: '#app-6',
         data: {
           message: "Hello Vue"
+        },
+      });
+
+      const todoItem = Vue.component("todo-item", {
+        props: ['todo'],
+        template: '<li>{{ todo.text }} </li>'
+      });
+
+      const app7 = new Vue({
+        el: '#app-7',
+        data: {
+          todos: [
+            { text: 'Learn Vue components', id: 0 },
+            { text: 'Learn Vue Props', id: 1 },
+            { text: 'Build something awesome', id: 2 },
+          ],
         },
       });
       </script>
