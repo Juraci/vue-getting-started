@@ -1,75 +1,87 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>My first Vue app</title>
-  <script src="https://unpkg.com/vue"></script>
-</head>
-<body>
-  <div id="app">
-    {{ message }}
-  </div>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      {{ message }}
+    </div>
 
-  <div id="app-2">
-    <span v-bind:title="message">Hover</span>
-  </div>
+    <div id="app-2">
+      <span v-bind:title="message">Hover</span>
+    </div>
 
-  <div id="app-3">
-    <span v-if="seen">Now you see me</span>
-  </div>
+    <div id="app-3">
+      <span v-if="seen">Now you see me</span>
+    </div>
 
-  <div id="app-4">
-    <ol>
-      <li v-for="todo in todos">{{ todo.text }}</li>
-    </ol>
-  </div>
+    <div id="app-4">
+      <ol>
+        <li v-for="todo in todos">{{ todo.text }}</li>
+      </ol>
+    </div>
 
-  <div id="app-5">
-    <p>{{ message }}<p>
-    <button v-on:click="reverseMessage">Reverse Message</button>
-  </div>
+    <div id="app-5">
+      <p>{{ message }}<p>
+      <button v-on:click="reverseMessage">Reverse Message</button>
+    </div>
 
-  <script>
-    const app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      }
-    });
+    <div id="app-6">
+      <p>{{ message }}</p>
+      <input type="text" v-model="message">
+    </div>
 
-    const app2 = new Vue({
-      el: '#app-2',
-      data: {
-        message:  `You loaded this page on ${ new Date().toLocaleString() }`
-      }
-    });
+      <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!'
+        }
+      });
 
-    const app3 = new Vue({
-      el: '#app-3',
-      data: {
-        seen: true,
-      }
-    });
+      const app2 = new Vue({
+        el: '#app-2',
+        data: {
+          message:  `You loaded this page on ${ new Date().toLocaleString() }`
+        }
+      });
 
-    const app4 = new Vue({
-      el: '#app-4',
-      data: {
-        todos: [
-          { text: 'Learn JS' },
-          { text: 'Learn Vue' },
-          { text: 'Build something awesome' },
-        ],
-      },
-    });
+      const app3 = new Vue({
+        el: '#app-3',
+        data: {
+          seen: true,
+        }
+      });
 
-    const app5 = new Vue({
-      el: '#app-5',
-      data: {
-        message: 'Hello Vue!',
-      },
-      methods: {
-        reverseMessage: function() { this.message = this.message.split(' ').reverse().join(' ') },
-      },
-    });
-  </script>
-</body>
-</html>
+      const app4 = new Vue({
+        el: '#app-4',
+        data: {
+          todos: [
+            { text: 'Learn JS' },
+            { text: 'Learn Vue' },
+            { text: 'Build something awesome' },
+          ],
+        },
+      });
+
+      const app5 = new Vue({
+        el: '#app-5',
+        data: {
+          message: 'Hello Vue!',
+        },
+        methods: {
+          reverseMessage: function() { this.message = this.message.split(' ').reverse().join(' ') },
+        },
+      });
+
+      const app6 = new Vue({
+        el: '#app-6',
+        data: {
+          message: "Hello Vue"
+        },
+      });
+      </script>
+    </body>
+  </html>
